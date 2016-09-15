@@ -3,7 +3,7 @@
 <HEAD>
 		<!-- <meta http-equiv="refresh" content="300">  -->
 		<meta charset="utf-8" />
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="../style.css" />
         <meta name="viewport" content="width=device-width, user-scalable=no">
 
 <TITLE>Entre_Cabanes</TITLE>
@@ -11,7 +11,7 @@
 <?php
 ob_start() ;
 
-	$path = 'images/'; //dossier ou se trouve les images à charger
+	$path = ''; //dossier ou se trouve les images à charger
 
 	$xml = new SimpleXMLElement('<?xml version="1.0" encoding="ISO-8859-1"?><JPGMOVIE/>'); // ajout d'un entete au fichier xml ainsi que son nom
 
@@ -61,7 +61,7 @@ ob_clean() ;
 ?>
 
 
-<script type="text/javascript" src="jpg_player.js"></script>
+<script type="text/javascript" src="../jpg_player.js"></script>
 
 <SCRIPT language="JavaScript" type="text/javascript">
 

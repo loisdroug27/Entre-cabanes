@@ -12,8 +12,7 @@ h1 {
 .center-div
 {
   margin: 0 auto;
-  min-width:320px;
-  max-width: 640px
+  width: 640px
   background-color: #ccc;
   border-radius: 3px;
   position:relative;

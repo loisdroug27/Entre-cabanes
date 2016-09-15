@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <HTML>
 <HEAD>
-<script src="//airve.github.io/js/verge/verge.min.js"></script>
-
-<script>
-    if ( verge.viewportW() <= 650) {
-    window.location.replace("mobile.php");
-}
-</script>
-
-
 		<!-- <meta http-equiv="refresh" content="300">  -->
 		<meta charset="utf-8" />
         <link rel="stylesheet" href="style.css" />

@@ -11,9 +11,10 @@
 
 <BODY>
 
+<li>
+        <a href="#">Movies <span class="arrow">&#9660;</span></a>
 
-
-<ul>
+<ul class="sub-menu">
 <?php 
       foreach(glob('SITE/AILLEUR/*', GLOB_ONLYDIR) as $filename){
       $rest = substr($filename, 13);    
@@ -21,7 +22,7 @@
       }
     ?>
 </ul>
-
+ </li>
 
 </BODY>
 

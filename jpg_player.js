@@ -5799,7 +5799,7 @@ jpgMoviePlayer.prototype.showLoadOnDemandButton = function(b) {
             var c = d.innerHTML;
             var f = a.offsetTop ;
             var e = a.offsetLeft ;
-            c += '<DIV STYLE="position:absolute; top:' + f + "px; left:" + e + 'px;"><A HREF="#" onClick="jm_' + this.divName + ".loadFromUrl('" + b + '\'); return false;"><IMG SRC="js_images/playondemand.png" WIDTH=' + this.width + ' HEIGHT=' + this.height + '  BORDER=0></A></DIV>';
+            c += '<DIV STYLE="position:absolute; top:' + e + "px; left:" + e + 'px;"><A HREF="#" onClick="jm_' + this.divName + ".loadFromUrl('" + b + '\'); return false;"><IMG SRC="js_images/playondemand.png" WIDTH=' + this.width + ' HEIGHT=' + this.height + '  BORDER=0></A></DIV>';
             d.innerHTML = c
         }
     }
@@ -5821,11 +5821,11 @@ jpgMoviePlayer.prototype.getControlHtml_RegularSpeedAdjuster = function(a) {
     var b = "";
     b += '  <IMG ID="' + this.divName + '_speed_adjuster" SRC="' + a + '" WIDTH=120 HEIGHT=16 BORDER=0 usemap="#' + this.divName + '_speed_adjuster_map">';
     b += '  <MAP NAME="' + this.divName + '_speed_adjuster_map">';
-    b += '  <AREA shape=rect coords="42,0,55,16" href="#" onClick="jm_' + this.divName + '.useSpeed(1); return false;">';
-    b += '  <AREA shape=rect coords="58,0,71,16" href="#" onClick="jm_' + this.divName + '.useSpeed(2); return false;">';
-    b += '  <AREA shape=rect coords="74,0,87,16" href="#" onClick="jm_' + this.divName + '.useSpeed(3); return false;">';
-    b += '  <AREA shape=rect coords="90,0,103,16" href="#" onClick="jm_' + this.divName + '.useSpeed(4); return false;">';
-    b += '  <AREA shape=rect coords="106,0,119,16" href="#" onClick="jm_' + this.divName + '.useSpeed(5); return false;">';
+    b += '  <AREA shape=rect coords="42,0,55,16" style="outline:none" href="#" onClick="jm_' + this.divName + '.useSpeed(1); return false;">';
+    b += '  <AREA shape=rect coords="58,0,71,16" style="outline:none" href="#" onClick="jm_' + this.divName + '.useSpeed(2); return false;">';
+    b += '  <AREA shape=rect coords="74,0,87,16" style="outline:none" href="#" onClick="jm_' + this.divName + '.useSpeed(3); return false;">';
+    b += '  <AREA shape=rect coords="90,0,103,16" style="outline:none" href="#" onClick="jm_' + this.divName + '.useSpeed(4); return false;">';
+    b += '  <AREA shape=rect coords="106,0,119,16" style="outline:none" href="#" onClick="jm_' + this.divName + '.useSpeed(5); return false;">';
     b += "  </MAP>";
     return b
 };
@@ -6025,19 +6025,21 @@ jpgMovieFramelessSliderPlayer.prototype.draw = function() {
     var a = "";
    // a += '<DIV STYLE="width:' + this.playerWidth + "px; height:" + this.playerHeight + 'px; background-color:#FFFFFF; text-align:center">';
    // a += '<A HREF="http://www.JpgMovie.com"><IMG SRC="http://www.JpgMovie.com/images/player/frameless/tabbed_title.jpg" WIDTH=100 HEIGHT=16 BORDER=0></A>';
-    a += '<DIV STYLE="border:2px solid #000000; width:' + this.playerWidth + "px; height:" + (this.playerHeight +20) + 'px; background-color:#CCCCFF;">\n'; //créer le div avec les commandes
+    //a += '<DIV STYLE="border:2px solid #000000; min-width:' + ((this.width)/2) + "px; height:" + this.height +'px;background-color:#000000;">\n'; //créer le div avec les commandes
    // a += '<DIV STYLE="background-color:transparent; width:' + this.playerWidth + "px; height:" + (this.playerHeight - 16) + 'px; margin:0 0; padding:0; text-align:left;">\n';
-    a += '<DIV STYLE="margin:0px 0px 0px 0px; position:relative; padding:0; width:' + this.width + "px; height:" + this.height + 'px; background-color:transparent;">\n'; //fait disparaitre l'image de play de départ
+    //a += '<DIV STYLE="border:2px solid #000000; margin:0px 0px 0px 0px; position:relative; padding-bottom:40px; max-width:' + this.width + 'px;  background-color:transparent;">\n'; //fait disparaitre l'image de play de départ
     if (this.bTargetEnabled) {
-        a += '<A ID="' + this.divName + '_target" HREF="' + this.defaultTarget + '"><img src="' + this.img + '" width="' + this.width + '" height="' + this.height + '" ID="' + this.divName + '_screen" BORDER=0></A>\n'
+        a += '<DIV STYLE="border:2px solid #000000; margin:0px 0px 0px 0px; position:relative;height:0px; max-width:' + this.width + 'px;  background-color:transparent;">\n';
+        a += '<A ID="' + this.divName + '_target" HREF="' + this.defaultTarget + '"><img src="' + this.img + '" ID="' + this.divName + '_screen" BORDER=0></A>\n'
     } else {
-        a += '<img src="' + this.img + '" width="' + this.width + '" height="' + this.height + '" ID="' + this.divName + '_screen" BORDER=0>\n'
-    }
-    a += '<DIV ID="' + this.divName + '_play_button" STYLE="margin:3px 0px 3px 0px; padding:0; background-color:transparent; text-align:center;"></DIV>';
+        a += '<DIV STYLE="border:2px solid #000000; margin:0px 0px 0px 0px; position:relative; padding-bottom:40px; max-width:' + this.width + 'px;  background-color:transparent;">\n';
+        a += '<img src="' + this.img + '" ID="' + this.divName + '_screen" BORDER=0>\n'
+   }
+    a += '<DIV ID="' + this.divName + '_play_button" STYLE="margin:3px 0px 3px 0px; padding:0; position:relative; background-color:transparent; text-align:center;"></DIV>';
    // var b = parseInt(((this.playerWidth - 109 - 136) / 2));
     a += '<DIV ID="' + this.divName + '_buffering" STYLE="text-align:center;"></DIV>';
-    a += '<DIV STYLE="width:200px; margin:0px 0px 0px 0px; float:left;">';
-    a += '  <DIV ID="' + this.divName + '_frame_slider" STYLE="margin:6px 0px 0px 5px; width:180px; height:11px; background-image: url(js_images/slider-bg.png); no-repeat; text-align: left; display: none;"><DIV ID="' + this.divName + '_frame_slider_handle" class="handle" STYLE=" width:16px; height:16px; background-color:transparent; cursor:move; display:none;"><IMG SRC="js_images/slider.png" WIDTH=16 HEIGHT=16 BORDER=0 ></DIV></DIV>';
+    a += '<DIV STYLE="width:170px; margin:0px 0px 0px 0px; float:left;">';
+    a += '  <DIV ID="' + this.divName + '_frame_slider" STYLE="margin:6px 0px 0px 5px; width:170px; height:11px; background-image: url(js_images/slider-bg.png); no-repeat; text-align: left; display: none;"><DIV ID="' + this.divName + '_frame_slider_handle" class="handle" STYLE=" width:16px; height:16px; background-color:transparent; cursor:move; display:none;"><IMG SRC="js_images/slider.png" WIDTH=16 HEIGHT=16 BORDER=0 ></DIV></DIV>';
     a += "</DIV>\n";
     a += '<DIV STYLE="width:120px; height:16px; margin:0px 0px 0px 0px; float:right">';
     a += '  <DIV ID="' + this.divName + '_speeds" STYLE="margin:5px 0px 5px 0px; background-color:transparent; display: none;">';

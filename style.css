@@ -1,3 +1,9 @@
+img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+}
+
 body {
   background-color: #2F2F45;
 }
@@ -12,8 +18,19 @@ h1 {
 .center-div
 {
   margin: 0 auto;
-  width: 640px
+  width:50%;
+  max-width: 640px;
+  min-width: 320px;
+  max-height:575px;
   background-color: #ccc;
   border-radius: 3px;
-  position:relative;
+  
 }
+
+
+.clearfix:after {
+    display:block;
+    clear:both;
+}
+
+

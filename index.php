@@ -55,9 +55,7 @@ ob_start() ;
 	$looping = $for_player->addChild('looping', '0');
 
 	$xml->asXML('data.xml');
-
 ob_clean() ; 
-
 ?>
 
 

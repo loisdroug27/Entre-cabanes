@@ -10,7 +10,9 @@
 </HEAD>
 
 <BODY>
-
+<div class="menu-wrap">
+    <nav class="menu">
+<ul class="clearfix">
 <li>
         <a href="#">Movies <span class="arrow">&#9660;</span></a>
 
@@ -23,7 +25,9 @@
     ?>
 </ul>
  </li>
-
+</ul>
+  </nav>
+</div>
 </BODY>
 
 

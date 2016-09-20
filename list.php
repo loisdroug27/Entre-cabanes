@@ -8,26 +8,44 @@
 
 <TITLE>Entre_Cabanes</TITLE>
 </HEAD>
+
+
+
 <BODY>
-<ul class="img-list">
+
+
+
+<div id="folderimg">
 <?php 
 
       foreach(glob('SITE/AILLEUR/*', GLOB_ONLYDIR) as $filename){
      
      
  $rest = substr($filename, 13);  
-      echo "<div class=\"holder\">\n";
-      echo "<li><a href='$filename'>\n";
+      
+     
+      echo "<a href='$filename'>\n";
       echo "<img src=\"img/cabane_jaune.png\">\n";
-      echo "<span class=\"textcontent\"><span>".$rest."</span></span>\n";
-     echo "</a>\n";
-      echo "</li>\n";
-       echo "</div>\n";
+      echo "</a>\n";
+      echo "<p>".$rest."</p>\n";
+      
+     // echo "</div>\n";
+      
+      //echo "<figcaption>".$rest."</figcaption\n";
+      
       //echo "<a href='$filename'>".$rest."</a></li>";
+
+     
       }
     ?>
 
-</ul>
+</div>
+<header>
+<div class="titre"><span style="color: #1D0E4A;">ailleurs /</span><span style="color:#023CEB;"> elsewhere</span></div>
+
+
+</header>
+<footer></footer>
 </BODY>
 </HTML>
 

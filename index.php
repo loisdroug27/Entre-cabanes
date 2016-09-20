@@ -3,7 +3,7 @@
 <HEAD>
 		<!-- <meta http-equiv="refresh" content="300">  -->
 		<meta charset="utf-8" />
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="css/style.css" />
         <meta name="viewport" content="width=device-width, user-scalable=no">
 
 <TITLE>Entre_Cabanes</TITLE>
@@ -59,7 +59,7 @@ ob_clean() ;
 ?>
 
 
-<script type="text/javascript" src="jpg_player.js"></script>
+<script type="text/javascript" src="js/jpg_player.js"></script>
 
 <SCRIPT language="JavaScript" type="text/javascript">
 

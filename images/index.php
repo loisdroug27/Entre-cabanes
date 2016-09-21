@@ -3,7 +3,7 @@
 <HEAD>
 		<!-- <meta http-equiv="refresh" content="300">  -->
 		<meta charset="utf-8" />
-        <link rel="stylesheet" href="../style.css" />
+        <link rel="stylesheet" href="../css/style.css" />
         <meta name="viewport" content="width=device-width, user-scalable=no">
 
 <TITLE>Entre_Cabanes</TITLE>
@@ -45,7 +45,7 @@ ob_start() ;
 
 	$for_player = $xml->addChild('for_player');
 
-	$firstFile = $files[0];
+	$firstFile = './img/cabane_jaune.png';
 
 	$for_player_img = $for_player->addChild('for_player_img', $firstFile); //IMAGE DE PREVIEW
 	$target_enabled = $for_player->addChild('target_enabled', '0');
@@ -61,7 +61,7 @@ ob_clean() ;
 ?>
 
 
-<script type="text/javascript" src="../jpg_player.js"></script>
+<script type="text/javascript" src="../js/jpg_player.js"></script>
 
 <SCRIPT language="JavaScript" type="text/javascript">
 

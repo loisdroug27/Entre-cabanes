@@ -6029,7 +6029,7 @@ jpgMovieFramelessSliderPlayer.prototype.draw = function() {
    // a += '<DIV STYLE="background-color:transparent; width:' + this.playerWidth + "px; height:" + (this.playerHeight - 16) + 'px; margin:0 0; padding:0; text-align:left;">\n';
     //a += '<DIV STYLE="border:2px solid #000000; margin:0px 0px 0px 0px; position:relative; padding-bottom:40px; max-width:' + this.width + 'px;  background-color:transparent;">\n'; //fait disparaitre l'image de play de départ
     if (this.bTargetEnabled) {
-        a += '<DIV STYLE="border:2px solid #000000; margin:0px 0px 0px 0px; position:relative;height:0px; max-width:' + this.width + 'px;  background-color:#686886;">\n';
+        a += '<DIV STYLE="border:0px solid #000000; margin:0px 0px 0px 0px; position:relative;height:0px; max-width:' + this.width + 'px;  background-color:#686886;">\n';
         a += '<A ID="' + this.divName + '_target" HREF="' + this.defaultTarget + '"><img src="' + this.img + '" ID="' + this.divName + '_screen" BORDER=0></A>\n'
     } else {
         a += '<DIV STYLE="border:2px solid #000000; margin:0px 0px 0px 0px; position:relative; padding-bottom:40px; max-width:' + this.width + 'px;  background-color:#686886;">\n';

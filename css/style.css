@@ -176,6 +176,8 @@ footer img {
     position: relative;
     text-align:center; /* On centre les éléments */
      height:auto;
+     list-style: none;
+
    
 }
 
@@ -190,15 +192,22 @@ footer img {
     
 }
 
+
+  
+
 a.box{
+
   
   position:relative;
   display:block;
-  
  
 }
 
-a.box span{
+
+
+
+
+a.box span {
   
   position:absolute;
   left:40%;

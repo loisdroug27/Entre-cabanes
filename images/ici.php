@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <HTML>
 <HEAD>
+    <TITLE>ici / here</TITLE>
     <!-- <meta http-equiv="refresh" content="300">  -->
     <meta charset="utf-8" />
     <meta name="Loïs Drouglazet" content="www.entre-cabanes.net" />
     <meta name="viewport" content="width=device-width, user-scalable=no">
 
-    <title>ailleurs / elsewhere</title>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/jquery.mmenu.all.css" />
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />
@@ -52,11 +52,6 @@
     <script type="text/javascript" src="js/jquery.mmenu.all.min.js" ></script>
 
         
-        
-        
-        
-
-<TITLE>Entre_Cabanes</TITLE>
 <script type="text/javascript">
    $(document).ready(function() {
       $("#my-menu").mmenu({
@@ -67,7 +62,7 @@
                   {
                      "position": "bottom",
                      "content": [
-                        "<a class='fa fa-instagram fa-2x' href='#/'></a>",
+                        "<a class='fa fa-instagram fa-2x' href='https://www.instagram.com/deschateauxenlair'></a>",
                         "<a class='fa fa-facebook fa-2x' href='https://www.facebook.com/deschateaux.enlair'></a>"
                      ]
                   }
@@ -96,15 +91,15 @@
 
 <nav id="my-menu">
    <ul class="vertical">
-      <li><a href="https://www.facebook.com/deschateaux.enlair"><span style="color: #1D0E4A;">maintenant /</span><span style="color:#023CEB;"> now</span></a></li>
-      <li><a href="https://www.facebook.com/deschateaux.enlair"><span style="color: #1D0E4A;">avant /</span><span style="color:#023CEB;"> before</span></a></li>
+      <li><a href="./index.php"><span style="color: #1D0E4A;">maintenant /</span><span style="color:#023CEB;"> now</span></a></li>
+      <li><a href="./ailleurs.php"><span style="color: #1D0E4A;">ailleurs /</span><span style="color:#023CEB;"> elsewhere</span></a></li>
       </ul>
 </nav>
 
 <div class="site-wrap">
 <header>
        
-       <div class="titre"><span style="color: #1D0E4A;">ailleurs /</span><span style="color:#023CEB;"> elsewhere</span> 
+       <div class="titre"><span style="color: #1D0E4A;">ici /</span><span style="color:#023CEB;"> here</span> 
        </div>
        <div class="menuicon" style="cursor: pointer ";><img src="img/hamb.png" id="my-button" ;> </div>
        
@@ -117,25 +112,52 @@
 
 <div id="folderimg">
 <?php 
+      $file = array_reverse(glob('timelapse/ici/*', GLOB_ONLYDIR)) ;
+      unset($file[1]);
 
-      foreach(glob('timelapse/ailleurs/*', GLOB_ONLYDIR) as $filename){
-     
-     
- $rest = substr($filename, 19);  
-      
+      $pair = $file;
+      $impair = $file;
+
+            $i = 1;
+            foreach ($pair as $key => $row) {
+             if($i%2 == '0')
+             {
+               unset($pair[$key]);
+             }
+             $i++;
+              }
+            $i = 1;
+            foreach ($impair as $key => $row) {
+             if($i%2 == '1')
+            {
+              unset($impair[$key]);
+             }
+              $i++;
+              }
+
+              
+      $fichiers = array_merge($pair, $impair);
+
+      foreach($fichiers as  $filename){
+ 
+          
+      $rest = substr($filename, 14);  
+      $rest = str_replace(':', '/', $rest);
+
      
       echo "<a class=\"box\" href='$filename'><span>".$rest."</span>\n";
       echo "<img src=\"img/cabane_jaune.png\">\n";
       echo "</a>\n";
      
       }
+       
     ?>
 
 </div>
 
 <div class="menu">
-<a href="https://www.facebook.com/deschateaux.enlair"><span style="color: #FCD14A;">maintenant /</span><span style="color:#C8C8B9;"> now</span></a>
-<a href="https://www.facebook.com/deschateaux.enlair"><span style="color: #FCD14A;">avant /</span><span style="color:#C8C8B9;"> before</span></a>
+<a href="./index.php"><span style="color: #FCD14A;">maintenant /</span><span style="color:#C8C8B9;"> now</span></a>
+<a href="./ailleurs.php"><span style="color: #FCD14A;">ailleurs /</span><span style="color:#C8C8B9;"> elsewhere</span></a>
 </div>
 
    
@@ -145,7 +167,7 @@
 <ul>
     <li>suivez les cabanes / follow the cabins </li>
 <li><a href="https://www.facebook.com/deschateaux.enlair"><img src="img/facebook.png" /></a></li>
-<li><a href="https://www.facebook.com/deschateaux.enlair"><img src="img/instagram.png" /></a></li>
+<li><a href="https://www.instagram.com/deschateauxenlair"><img src="img/instagram.png" /></a></li>
 </footer>
 
 </div>

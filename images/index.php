@@ -45,7 +45,7 @@ ob_start() ;
 
 	$for_player = $xml->addChild('for_player');
 
-	$firstFile = './img/cabane_jaune.png';
+	$firstFile = '../img/cabane640.png';
 
 	$for_player_img = $for_player->addChild('for_player_img', $firstFile); //IMAGE DE PREVIEW
 	$target_enabled = $for_player->addChild('target_enabled', '0');

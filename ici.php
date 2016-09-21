@@ -86,12 +86,6 @@
    });
 </script>
 
-<SCRIPT language="JavaScript" type="text/javascript">
-function load_player() {
-    mov = jpgMovieFactory( 'movie_div', 'jpgMovieFramelessSliderPlayer', "<?php echo $width ?>", "<?php echo $height ?>" );
-    mov.loadFromUrlOnDemand( "<?php echo $firstFile ?>", 'data.xml' );
-}
-</SCRIPT>
 
 </HEAD>
 

@@ -5819,13 +5819,13 @@ jpgMoviePlayer.prototype.showLoadOnDemandButton = function(b) {
 };
 jpgMoviePlayer.prototype.getControlHtml_RegularSpeedAdjuster = function(a) {
     var b = "";
-    b += '  <IMG ID="' + this.divName + '_speed_adjuster" SRC="' + a + '" WIDTH=120 HEIGHT=16 BORDER=0 usemap="#' + this.divName + '_speed_adjuster_map">';
+    b += '  <IMG ID="' + this.divName + '_speed_adjuster" SRC="' + a + '" WIDTH=140 HEIGHT=19 BORDER=0 usemap="#' + this.divName + '_speed_adjuster_map">';
     b += '  <MAP NAME="' + this.divName + '_speed_adjuster_map">';
-    b += '  <AREA shape=rect coords="42,0,55,16" style="outline:none" href="#" onClick="jm_' + this.divName + '.useSpeed(1); return false;">';
-    b += '  <AREA shape=rect coords="58,0,71,16" style="outline:none" href="#" onClick="jm_' + this.divName + '.useSpeed(2); return false;">';
-    b += '  <AREA shape=rect coords="74,0,87,16" style="outline:none" href="#" onClick="jm_' + this.divName + '.useSpeed(3); return false;">';
-    b += '  <AREA shape=rect coords="90,0,103,16" style="outline:none" href="#" onClick="jm_' + this.divName + '.useSpeed(4); return false;">';
-    b += '  <AREA shape=rect coords="106,0,119,16" style="outline:none" href="#" onClick="jm_' + this.divName + '.useSpeed(5); return false;">';
+    b += '  <AREA shape=circle coords="61,10,7"  style="outline:none" href="#" onClick="jm_' + this.divName + '.useSpeed(1); return false;">';
+    b += '  <AREA shape=circle coords="79,10,7" style="outline:none" href="#" onClick="jm_' + this.divName + '.useSpeed(2); return false;">';
+    b += '  <AREA shape=circle coords="96,10,7" style="outline:none" href="#" onClick="jm_' + this.divName + '.useSpeed(3); return false;">';
+    b += '  <AREA shape=circle coords="114,10,7" style="outline:none" href="#" onClick="jm_' + this.divName + '.useSpeed(4); return false;">';
+    b += '  <AREA shape=circle coords="131,10,7" style="outline:none" href="#" onClick="jm_' + this.divName + '.useSpeed(5); return false;">';
     b += "  </MAP>";
     return b
 };
@@ -6032,16 +6032,16 @@ jpgMovieFramelessSliderPlayer.prototype.draw = function() {
         a += '<DIV STYLE="border:0px solid #000000; margin:0px 0px 0px 0px; position:relative;height:0px; max-width:' + this.width + 'px;  background-color:#686886;">\n';
         a += '<A ID="' + this.divName + '_target" HREF="' + this.defaultTarget + '"><img src="' + this.img + '" ID="' + this.divName + '_screen" BORDER=0></A>\n'
     } else {
-        a += '<DIV STYLE="border:2px solid #000000; margin:0px 0px 0px 0px; position:relative; padding-bottom:40px; max-width:' + this.width + 'px;  background-color:#686886;">\n';
+        a += '<DIV STYLE="border:0px solid #000000; margin:0px 0px 0px 0px; position:relative; padding-bottom:20px; max-width:' + this.width + 'px;  background-color:#686886;">\n';
         a += '<img src="' + this.img + '" ID="' + this.divName + '_screen" BORDER=0>\n'
    }
     a += '<DIV ID="' + this.divName + '_play_button" STYLE="margin:3px 0px 3px 0px; padding:0; position:relative; background-color:transparent; text-align:center;"></DIV>';
    // var b = parseInt(((this.playerWidth - 109 - 136) / 2));
     a += '<DIV ID="' + this.divName + '_buffering" STYLE="text-align:center;"></DIV>';
-    a += '<DIV STYLE="width:170px; margin:0px 0px 0px 0px; float:left;">';
-    a += '  <DIV ID="' + this.divName + '_frame_slider" STYLE="margin:6px 0px 0px 5px; width:170px; height:11px; background-image: url(http://www.entre-cabanes.net/js_images/slider-bg.png); no-repeat; text-align: left; display: none;"><DIV ID="' + this.divName + '_frame_slider_handle" class="handle" STYLE=" width:16px; height:16px; background-color:transparent; cursor:move; display:none;"><IMG SRC="http://www.entre-cabanes.net/js_images/slider.png" WIDTH=16 HEIGHT=16 BORDER=0 ></DIV></DIV>';
-    a += "</DIV>\n";
-    a += '<DIV STYLE="width:120px; height:16px; margin:0px 0px 0px 0px; float:right">';
+   // a += '<DIV STYLE="width:170px; margin:0px 0px 0px 0px; float:left;">';
+   // a += '  <DIV ID="' + this.divName + '_frame_slider" STYLE="margin:6px 0px 0px 5px; width:170px; height:11px; background-image: url(http://www.entre-cabanes.net/js_images/slider-bg.png); no-repeat; text-align: left; display: none;"><DIV ID="' + this.divName + '_frame_slider_handle" class="handle" STYLE=" width:16px; height:16px; background-color:transparent; cursor:move; display:none;"><IMG SRC="http://www.entre-cabanes.net/js_images/slider.png" WIDTH=16 HEIGHT=16 BORDER=0 ></DIV></DIV>';
+   //a += "</DIV>\n";
+    a += '<DIV STYLE="width:140px; height:19px; margin:0 auto;">';
     a += '  <DIV ID="' + this.divName + '_speeds" STYLE="margin:5px 0px 5px 0px; background-color:transparent; display: none;">';
     a += this.getControlHtml_RegularSpeedAdjuster(this.speed_adjusters[3].src);
     a += "  </DIV>\n";

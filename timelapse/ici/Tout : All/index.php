@@ -4,22 +4,20 @@
     <TITLE>ici / here</TITLE>
 
     <?php
-ob_start() ;
 
-  $path = ''; //dossier ou se trouve les images à charger
+
 
   $xml = new SimpleXMLElement('<?xml version="1.0" encoding="ISO-8859-1"?><JPGMOVIE/>'); // ajout d'un entete au fichier xml ainsi que son nom
 
   $version = $xml->addChild('version','1.1.3'); // ajout de la version au fichier xml
   $interval = $xml->addChild('interval','100'); // ajout de la durée entre les images au fichier xml
+
+ $Directory = new RecursiveDirectoryIterator('../../');
+  $Iterator = new RecursiveIteratorIterator($Directory);
+  $files = new RegexIterator($Iterator, '/^.+(.jpe?g|.png)$/i', RecursiveRegexIterator::GET_MATCH);
+
+    $filecount=iterator_count( $files );
  
-
-  $files = glob("$path{*.jpg,*.JPG,*.png,*.jpeg}", GLOB_BRACE ); //Compte le nombre de JPG dans le dossier
-
-  if ( $files !== false )
-  {
-    $filecount = count( $files );
-  }
 
   $cFrames = $xml->addChild('cFrames', $filecount); // ajoute le nombre d'image trouvée dans le dossier
   
@@ -31,7 +29,7 @@ ob_start() ;
       $frames = $xml->addChild('frames');
       $i = 0;
    
-      foreach ( $files as $file ) {
+      foreach ( $files as $file => $files) {
           $name = 'frame_'.$i;
           $frame = $frames->addChild($name, $file);
           $i++;
@@ -51,7 +49,7 @@ ob_start() ;
 
   $xml->asXML('data.xml');
 
-ob_clean() ; 
+
 
 ?>  
 

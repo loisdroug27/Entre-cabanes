@@ -151,22 +151,31 @@ footer img {
 
 
 
-.center-div
+.lecteurjpg
 {
   margin: 0px auto;
   width:80%;
   max-width: 640px;
-  min-width: 300px;
+  min-width: 200px;
   background-color: #ccc;
   border-radius: 3px;
+  position: relative;
+  top: 120px;
   
+  
+}
+
+#movie_div_speed_adjuster{
+width:140px;
+height: 19px;
+
 }
 
 
 
 #folderimg {
 
-    padding:80px 0 80px 0;
+    padding:80px 0 150px 0;
     margin: auto;
     max-width:1000px;
     -moz-column-count:2;
@@ -236,6 +245,7 @@ a.box span {
    header .menuicon{display: inline-block;}
    .menu{display:none;}
    #folderimg{padding:20px 0 20px 0;}
+   .lecteurjpg{top: 30px;}
    }
 
 

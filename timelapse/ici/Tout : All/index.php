@@ -14,9 +14,15 @@
 
  $Directory = new RecursiveDirectoryIterator('../../');
   $Iterator = new RecursiveIteratorIterator($Directory);
-  $files = new RegexIterator($Iterator, '/^.+(.jpe?g|.png)$/i', RecursiveRegexIterator::GET_MATCH);
+  $regex = new RegexIterator($Iterator, '/^.+(.jpe?g|.png)$/i', RecursiveRegexIterator::GET_MATCH);
+  $files = array();
+  foreach($regex as $name => $regex) {
+      $files[] = $name;
+}
+  natsort($files);
 
-    $filecount=iterator_count( $files );
+
+    $filecount=count( $files );
  
 
   $cFrames = $xml->addChild('cFrames', $filecount); // ajoute le nombre d'image trouvée dans le dossier
@@ -29,7 +35,7 @@
       $frames = $xml->addChild('frames');
       $i = 0;
    
-      foreach ( $files as $file => $files) {
+      foreach ( $files as $file ) {
           $name = 'frame_'.$i;
           $frame = $frames->addChild($name, $file);
           $i++;

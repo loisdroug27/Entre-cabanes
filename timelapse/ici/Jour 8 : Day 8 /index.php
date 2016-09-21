@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <HTML>
 <HEAD>
-    <TITLE>ici et maintenant / here and now</TITLE>
+    <TITLE>ici / here</TITLE>
 
     <?php
 ob_start() ;
 
-  $pathlast = array_reverse (glob('timelapse/ici/*', GLOB_ONLYDIR)) ;
-
-
-   $path = "$pathlast[1]/"; //dossier ou se trouve les images à charger
+  $path = ''; //dossier ou se trouve les images à charger
 
   $xml = new SimpleXMLElement('<?xml version="1.0" encoding="ISO-8859-1"?><JPGMOVIE/>'); // ajout d'un entete au fichier xml ainsi que son nom
 
@@ -43,7 +40,7 @@ ob_start() ;
 
   $for_player = $xml->addChild('for_player');
 
-  $firstFile = 'img/cabane640.png';
+  $firstFile = '../../../img/cabane640.png';
 
   $for_player_img = $for_player->addChild('for_player_img', $firstFile); //IMAGE DE PREVIEW
   $target_enabled = $for_player->addChild('target_enabled', '0');
@@ -52,10 +49,7 @@ ob_start() ;
   $autoplay = $for_player->addChild('autoplay', '0');
   $looping = $for_player->addChild('looping', '0');
 
-  
-  $pathdata = $path."data.xml";
-
-  $xml->asXML($pathdata);
+  $xml->asXML('data.xml');
 
 ob_clean() ; 
 
@@ -66,8 +60,8 @@ ob_clean() ;
     <meta name="Loïs Drouglazet" content="www.entre-cabanes.net" />
     <meta name="viewport" content="width=device-width, user-scalable=no">
 
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/jquery.mmenu.all.css" />
+    <link rel="stylesheet" href="../../../css/style.css" />
+    <link rel="stylesheet" href="../../../css/jquery.mmenu.all.css" />
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />
     <style type="text/css">
     .mm-menu.mm-theme-white {
@@ -107,19 +101,19 @@ ob_clean() ;
           }
       </style>
 
-   <script type="text/javascript" src="js/jpg_player.js"></script>
+   <script type="text/javascript" src="../../../js/jpg_player.js"></script>
 
     <SCRIPT language="JavaScript" type="text/javascript">
 function load_player() {
     mov = jpgMovieFactory( 'movie_div', 'jpgMovieFramelessSliderPlayer', "<?php echo $width ?>", "<?php echo $height ?>" );
-    mov.loadFromUrlOnDemand( "<?php echo $firstFile ?>", "<?php echo $pathdata ?>" );
+    mov.loadFromUrlOnDemand( "<?php echo $firstFile ?>", 'data.xml' );
 }
 </SCRIPT>
 
 
     <script type="text/javascript" src="http://code.jquery.com/jquery-2.2.0.js"></script>
 
-    <script type="text/javascript" src="js/jquery.mmenu.all.min.js" ></script>
+    <script type="text/javascript" src="../../../js/jquery.mmenu.all.min.js" ></script>
 
 
     <script type="text/javascript">
@@ -164,17 +158,17 @@ function load_player() {
 
 <nav id="my-menu">
    <ul class="vertical">
-      <li><a href="ici.php"><span style="color: #1D0E4A;">ici /</span><span style="color:#023CEB;"> here</span></a></li>
-      <li><a href="ailleurs.php"><span style="color: #1D0E4A;">ailleurs /</span><span style="color:#023CEB;"> elsewhere</span></a></li>
+      <li><a href="../../../index.php"><span style="color: #1D0E4A;">maintenant /</span><span style="color:#023CEB;"> now</span></a></li>
+      <li><a href="../../../ailleurs.php"><span style="color: #1D0E4A;">ailleurs /</span><span style="color:#023CEB;"> elsewhere</span></a></li>
       </ul>
 </nav>
 
 <div class="site-wrap">
 <header>
        
-       <div class="titre"><span style="color: #1D0E4A;">ici et maintenant /</span><span style="color:#023CEB;"> here and now</span> 
+       <div class="titre"><span style="color: #1D0E4A;">ici /</span><span style="color:#023CEB;"> here</span> 
        </div>
-       <div class="menuicon" style="cursor: pointer ";><img src="img/hamb.png" id="my-button" ;> </div>
+       <div class="menuicon" style="cursor: pointer ";><img src="../../../img/hamb.png" id="my-button" ;> </div>
        
 
  
@@ -185,8 +179,8 @@ function load_player() {
 
 
 <div class="menu">
-<a href="ici.php"><span style="color: #FCD14A;">ici /</span><span style="color:#C8C8B9;"> here</span></a>
-<a href="ailleurs.php"><span style="color: #FCD14A;">ailleurs /</span><span style="color:#C8C8B9;"> elsewhere</span></a>
+<a href="../../../index.php"><span style="color: #FCD14A;">maintenant /</span><span style="color:#C8C8B9;"> now</span></a>
+<a href="../../../ailleurs.php"><span style="color: #FCD14A;">ailleurs /</span><span style="color:#C8C8B9;"> elsewhere</span></a>
 </div>
 
    
@@ -195,8 +189,8 @@ function load_player() {
 <footer>
 <ul>
     <li>suivez les cabanes / follow the cabins </li>
-<li><a href="https://www.facebook.com/deschateaux.enlair"><img src="img/facebook.png" /></a></li>
-<li><a href="https://www.instagram.com/deschateauxenlair"><img src="img/instagram.png" /></a></li>
+<li><a href="https://www.facebook.com/deschateaux.enlair"><img src="../../../img/facebook.png" /></a></li>
+<li><a href="https://www.instagram.com/deschateauxenlair"><img src="../../../img/instagram.png" /></a></li>
 </footer>
 
 </div>

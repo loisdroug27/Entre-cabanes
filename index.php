@@ -13,9 +13,7 @@ ob_start() ;
 
   $xml = new SimpleXMLElement('<?xml version="1.0" encoding="ISO-8859-1"?><JPGMOVIE/>'); // ajout d'un entete au fichier xml ainsi que son nom
 
-  $version = $xml->addChild('version','1.1.3'); // ajout de la version au fichier xml
-  $interval = $xml->addChild('interval','100'); // ajout de la durée entre les images au fichier xml
- 
+  $version = $xml->addChild('version','1.1.3'); // ajout de la version au fichier xml 
 
   $files = glob("$path{*.jpg,*.JPG,*.png,*.jpeg}", GLOB_BRACE ); //Compte le nombre de JPG dans le dossier
 
@@ -43,9 +41,9 @@ ob_start() ;
 
   $for_player = $xml->addChild('for_player');
 
-  $firstFile = 'img/cabane640.png';
+  $firstFile = 'img/cabaneplay.png';
 
-  $for_player_img = $for_player->addChild('for_player_img', $firstFile); //IMAGE DE PREVIEW
+  $for_player_img = $for_player->addChild('for_player_img', $files[0]); //IMAGE DE PREVIEW
   $target_enabled = $for_player->addChild('target_enabled', '0');
   $width = $for_player->addChild('width', '640');
   $height = $for_player->addChild('height', '480');
@@ -61,17 +59,17 @@ ob_clean() ;
 
 ?>  
 
-    <!-- <meta http-equiv="refresh" content="300">  -->
+    <meta http-equiv="refresh" content="300"> 
     <meta charset="utf-8" />
     <meta name="Loïs Drouglazet" content="www.entre-cabanes.net" />
     <meta name="viewport" content="width=device-width, user-scalable=no">
 
-    <link rel="stylesheet" href="css/style.css" />
+   
     <link rel="stylesheet" href="css/jquery.mmenu.all.css" />
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
     <style type="text/css">
     .mm-menu.mm-theme-white {
-        background: #FCD14A;
+        background: #F0DC23;
         border-color:rgba( 0, 0, 0, 0.4 );
               }
       .mm-listview li > a,
@@ -117,12 +115,13 @@ function load_player() {
 </SCRIPT>
 
 
-    <script type="text/javascript" src="http://code.jquery.com/jquery-2.2.0.js"></script>
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
 
     <script type="text/javascript" src="js/jquery.mmenu.all.min.js" ></script>
 
 
     <script type="text/javascript">
+
    $(document).ready(function() {
 
           $("#my-menu").mmenu({
@@ -133,8 +132,8 @@ function load_player() {
                   {
                      "position": "bottom",
                      "content": [
-                        "<a class='fa fa-instagram fa-2x' href='https://www.instagram.com/deschateauxenlair'></a>",
-                        "<a class='fa fa-facebook fa-2x' href='https://www.facebook.com/deschateaux.enlair'></a>"
+                        "<a class='fa fa-instagram fa-2x' href='http://urlgeni.us/instagram/cabanes'></a>",
+                        "<a class='fa fa-facebook fa-2x' href='http://urlgeni.us/facebook/cabanes'></a>"
                      ]
                   }
                ],
@@ -155,7 +154,7 @@ function load_player() {
    });
 </script>
 
-
+ <link rel="stylesheet" href="css/style.css" />
 </HEAD>
 
 
@@ -185,8 +184,8 @@ function load_player() {
 
 
 <div class="menu">
-<a href="ici.php"><span style="color: #FCD14A;">ici /</span><span style="color:#C8C8B9;"> here</span></a>
-<a href="ailleurs.php"><span style="color: #FCD14A;">ailleurs /</span><span style="color:#C8C8B9;"> elsewhere</span></a>
+<a href="ici.php"><span style="color: #F0DC23;">ici /</span><span style="color:#C8C8B9;"> here</span></a>
+<a href="ailleurs.php"><span style="color: #F0DC23;">ailleurs /</span><span style="color:#C8C8B9;"> elsewhere</span></a>
 </div>
 
    
@@ -195,8 +194,8 @@ function load_player() {
 <footer>
 <ul>
     <li>suivez les cabanes / follow the cabins </li>
-<li><a href="https://www.facebook.com/deschateaux.enlair"><img src="img/facebook.png" /></a></li>
-<li><a href="https://www.instagram.com/deschateauxenlair"><img src="img/instagram.png" /></a></li>
+<li><a class='fa fa-facebook fa-2x' href="https://www.facebook.com/entrecabanes"></a></li>
+<li><a class='fa fa-instagram fa-2x' href="https://www.instagram.com/deschateauxenlair"></a></li>
 </footer>
 
 </div>

@@ -9,10 +9,10 @@
 
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/jquery.mmenu.all.css" />
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
     <style type="text/css">
     .mm-menu.mm-theme-white {
-        background: #FCD14A;
+        background: #F0DC23;
         border-color:rgba( 0, 0, 0, 0.4 );
               }
       .mm-listview li > a,
@@ -48,7 +48,7 @@
           }
       </style>
 
-    <script type="text/javascript" src="http://code.jquery.com/jquery-2.2.0.js"></script>
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="js/jquery.mmenu.all.min.js" ></script>
 
 
@@ -62,8 +62,8 @@
                   {
                      "position": "bottom",
                      "content": [
-                        "<a class='fa fa-instagram fa-2x' href='https://www.instagram.com/deschateauxenlair'></a>",
-                        "<a class='fa fa-facebook fa-2x' href='https://www.facebook.com/deschateaux.enlair'></a>"
+                        "<a class='fa fa-instagram fa-2x' href='http://urlgeni.us/instagram/cabanes'></a>",
+                        "<a class='fa fa-facebook fa-2x' href='http://urlgeni.us/facebook/cabanes'></a>"
                      ]
                   }
                ],
@@ -144,8 +144,8 @@
       
 
      
-      echo "<a class=\"box\" href='$filename'><span>".$rest."</span>\n";
-      echo "<img src=\"img/cabane_jaune.png\">\n";
+      echo "<a class=\"boxailleurs\" href='$filename'><span>".$rest."</span>\n";
+      echo "<img src=\"img/cabane.png\">\n";
       echo "</a>\n";
      
       }
@@ -155,8 +155,8 @@
 </div>
 
 <div class="menu">
-<a href="./index.php"><span style="color: #FCD14A;">maintenant /</span><span style="color:#C8C8B9;"> now</span></a>
-<a href="./ici.php"><span style="color: #FCD14A;">ici /</span><span style="color:#C8C8B9;"> here</span></a>
+<a href="./index.php"><span style="color: #F0DC23;">maintenant /</span><span style="color:#C8C8B9;"> now</span></a>
+<a href="./ici.php"><span style="color: #F0DC23;">ici /</span><span style="color:#C8C8B9;"> here</span></a>
 </div>
 
    
@@ -165,8 +165,8 @@
 <footer>
 <ul>
     <li>suivez les cabanes / follow the cabins </li>
-<li><a href="https://www.facebook.com/deschateaux.enlair"><img src="img/facebook.png" /></a></li>
-<li><a href="https://www.instagram.com/deschateauxenlair"><img src="img/instagram.png" /></a></li>
+<li><a class='fa fa-facebook fa-2x' href="https://www.facebook.com/entrecabanes"></a></li>
+<li><a class='fa fa-instagram fa-2x' href="https://www.instagram.com/deschateauxenlair"></a></li>
 </footer>
 
 </div>

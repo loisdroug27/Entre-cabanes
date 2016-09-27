@@ -5175,7 +5175,7 @@ Control.Slider = Class.create({
 function jpgMovie() {
     this.name = "";
     this.player = null;
-    this.interval = 100;
+    this.interval = 84; /*------------------------------------------CHANGER LES VITESSES DE LECTURES 1000 = 1 im/s et 84 = 12img/s*/
     this.timer = null;
     this.cFramesUntilPlayable = -1;
     this.cFrames = 0;
@@ -5453,13 +5453,13 @@ function jpgMoviePlayer(c, b, a) {
     this.setDivName(c);
     this.setImageWidth(b);
     this.setImageHeight(a);
-    this.interval = 175;
+    // this.interval = 175;
     this.aSpeeds = new Array();
-    this.aSpeeds[1] = 700;
-    this.aSpeeds[2] = 350;
-    this.aSpeeds[3] = 175;
-    this.aSpeeds[4] = 88;
-    this.aSpeeds[5] = 44;
+    // this.aSpeeds[1] = 700;   ------------------------------------------CHANGER LES VITESSES DE LECTURES
+    // this.aSpeeds[2] = 350;
+    // this.aSpeeds[3] = 175;
+    // this.aSpeeds[4] = 88;
+    // this.aSpeeds[5] = 44;
     this.bTargetEnabled = 0;
     this.defaultTarget = "http://www.entre-cabanes.net";
     this.bLoaded = false;
@@ -5469,7 +5469,7 @@ function jpgMoviePlayer(c, b, a) {
     this.divMovieScreen = null;
     this.divBuffering = null;
     this.divPlayButton = null;
-    this.frameSlider = null;
+    // this.frameSlider = null;
     this.urlImageBase = ""
 }
 jpgMoviePlayer.prototype.divName;
@@ -5489,7 +5489,7 @@ jpgMoviePlayer.prototype.movie;
 jpgMoviePlayer.prototype.divMovieScreen;
 jpgMoviePlayer.prototype.divBuffering;
 jpgMoviePlayer.prototype.divPlayButton;
-jpgMoviePlayer.prototype.frameSlider;
+// jpgMoviePlayer.prototype.frameSlider;
 jpgMoviePlayer.prototype.urlImageBase;
 jpgMoviePlayer.prototype.aSpeeds;
 jpgMoviePlayer.prototype.setDivName = function(a) {
@@ -5601,13 +5601,7 @@ jpgMoviePlayer.prototype.useSpeed = function(b) {
         this.movie.setInterval(this.interval)
     }
 };
-jpgMoviePlayer.prototype.getInterval = function() {
-    if (this.movie != null) {
-        return this.movie.getInterval()
-    } else {
-        return this.interval
-    }
-};
+
 jpgMoviePlayer.prototype.styleZeroExtraSpace = function() {
     return "margin: 0px; border: 0px solid white; padding: 0px;"
 };
@@ -5799,36 +5793,22 @@ jpgMoviePlayer.prototype.showLoadOnDemandButton = function(b) {
             var c = d.innerHTML;
             var f = a.offsetTop ;
             var e = a.offsetLeft ;
-            c += '<DIV STYLE="position:absolute; top:' + e + "px; left:" + e + 'px;"><A HREF="#" onClick="jm_' + this.divName + ".loadFromUrl('" + b + '\'); return false;"><IMG SRC="http://www.entre-cabanes.net/js_images/playondemand.png" WIDTH=' + this.width + ' HEIGHT=' + this.height + '  BORDER=0></A></DIV>';
+            c += '<DIV STYLE="position:absolute; top:' + e + "px; left:" + e + 'px;"><A HREF="#" onClick="jm_' + this.divName + ".loadFromUrl('" + b + '\'); return false;"></A></DIV>';
             d.innerHTML = c
         }
     }
-  //  if (this.divPlayButton == null) {
-   //     this.divPlayButton = document.getElementById(this.divName + "_play_button")
-   // }
 
     if (this.divPlayButton != null) {
         var c = "";
         if (this.play_button != null) {
-            c += '<A HREF="#" onClick="jm_' + this.divName + ".loadFromUrl('" + b + '\'); return false;"><IMG SRC="' + this.play_button.src + '" BORDER=0 HSPACE=10></A>'
+            c += '<A HREF="#" onClick="jm_' + this.divName + ".loadFromUrl('" + b + '\'); return false;"></A>'
         } else {
             c += '<A HREF="#" onClick="jm_' + this.divName + ".loadFromUrl('" + b + "'); return false;\">Click to Load/Play</A>"
         }
         this.divPlayButton.innerHTML = c
     }
 };
-jpgMoviePlayer.prototype.getControlHtml_RegularSpeedAdjuster = function(a) {
-    var b = "";
-    b += '  <IMG ID="' + this.divName + '_speed_adjuster" SRC="' + a + '" WIDTH=140 HEIGHT=19 BORDER=0 usemap="#' + this.divName + '_speed_adjuster_map">';
-    b += '  <MAP NAME="' + this.divName + '_speed_adjuster_map">';
-    b += '  <AREA shape=circle coords="86,13,12"   style="outline:none" href="#" onClick="jm_' + this.divName + '.useSpeed(1); return false;">';
-    b += '  <AREA shape=circle coords="111,13,12"  style="outline:none" href="#" onClick="jm_' + this.divName + '.useSpeed(2); return false;">';
-    b += '  <AREA shape=circle coords="136,13,12"  style="outline:none" href="#" onClick="jm_' + this.divName + '.useSpeed(3); return false;">';
-    b += '  <AREA shape=circle coords="162,13,12"  style="outline:none" href="#" onClick="jm_' + this.divName + '.useSpeed(4); return false;">';
-    b += '  <AREA shape=circle coords="186,13,12"  style="outline:none" href="#" onClick="jm_' + this.divName + '.useSpeed(5); return false;">';
-    b += "  </MAP>";
-    return b
-};
+
 jpgMoviePlayer.prototype.toXml = function() {
     var a = "";
     a += "<JPGMOVIEPLAYER>\n";
@@ -5849,98 +5829,19 @@ function jpgMovieSliderPlayer(c, b, a) {
     this.setDivName(c);
     this.setImageWidth(b);
     this.setImageHeight(a);
-    this.speedSliderIntervals = null
 }
 jpgMovieSliderPlayer.prototype = new jpgMoviePlayer();
-jpgMovieSliderPlayer.prototype.speedSliderIntervals;
-jpgMovieSliderPlayer.prototype.setIntervalsForSpeedSlider = function(a) {
-    this.speedSliderIntervals = a.slice(0)
-};
-jpgMovieSliderPlayer.prototype._initialiseSpeedSliderIntervals = function() {
-    if (this.speedSliderIntervals == null) {
-        this.speedSliderIntervals = new Array();
-        this.speedSliderIntervals[0] = this.interval * 4;
-        this.speedSliderIntervals[1] = this.interval * 2;
-        this.speedSliderIntervals[2] = this.interval;
-        this.speedSliderIntervals[3] = Math.ceil(this.interval / 2);
-        this.speedSliderIntervals[4] = Math.ceil(this.interval / 4)
-    }
-};
-jpgMovieSliderPlayer.prototype._locateBestSpeedSliderStartingPosition = function() {
-    var b = 0;
-    var c = 0;
-    var a = this.speedSliderIntervals.length;
-    var d = false;
-    if (a > 0) {
-        for (c = 0; c < a; c++) {
-            if (this.interval == this.speedSliderIntervals[c]) {
-                d = true;
-                b = c
-            }
-        }
-        if (!d) {
-            for (c = 0; c < a; c++) {
-                if (this.interval > this.speedSliderIntervals[c]) {
-                    d = true;
-                    b = c
-                }
-            }
-        }
-        if (!d) {
-            b = Math.floor(this.speedSliderIntervals.length / 2)
-        }
-    }
-    return b
-};
-jpgMovieSliderPlayer.prototype.equipSlider = function() {
-    var a = $(this.divName + "_frame_slider");
-    var e = $(this.divName + "_speed_slider");
-    var d = this;
-    var b = 1;
-    if (a != null) {
-        if (this.movie != null) {
-            b = this.movie.cFrames - 1
-        } else {
-            alert("Trying to equip the FRAME SLIDER before the movie has been loaded\n will result in a slider without the full range of frames")
-        }
-        this.frameSlider = new Control.Slider(a.down(".handle"), a, {
-            range: $R(0, b),
-            sliderValue: 0,
-            onSlide: function(f) {
-                d.setFrame(parseInt(f))
-            }
-        })
-    }
-    if (e != null) {
-        this._initialiseSpeedSliderIntervals();
-        b = this.speedSliderIntervals.length - 1;
-        var c = this._locateBestSpeedSliderStartingPosition();
-        this.speedSlider = new Control.Slider(e.down(".handle"), e, {
-            range: $R(0, b),
-            sliderValue: c,
-            onSlide: function(f) {
-                d.setInterval(d.getIntervalFromSpeedSlider(d, parseInt(f)))
-            }
-        })
-    }
-};
-jpgMovieSliderPlayer.prototype.getIntervalFromSpeedSlider = function(b, a) {
-    return b.speedSliderIntervals[a]
-};
+
 jpgMovieSliderPlayer.prototype.showPauseButton = function() {
     if (this.divPlayButton == null) {
         this.divPlayButton = document.getElementById(this.divName + "_play_button")
     }
     if (this.divPlayButton != null) {
         if (this.pause_button != null) {
-            this.divPlayButton.innerHTML = '<A HREF="#" onClick="jm_' + this.divName + '.pause(); return false;"><IMG SRC="' + this.pause_button.src + '" BORDER=0></A>'
+            this.divPlayButton.innerHTML = '<A class="fa fa-pause fa-2x" HREF="#" onClick="jm_' + this.divName + '.pause(); return false;"></A>'
         } else {
             this.divPlayButton.innerHTML = '<A HREF="#" onClick="jm_' + this.divName + '.pause(); return false;">PAUSE</A>'
         }
-    }
-    var a = document.getElementById(this.divName + "_frame_slider_handle");
-    if (a != null) {
-        a.style.display = "block"
     }
 };
 jpgMovieSliderPlayer.prototype.showPlayButton = function() {
@@ -5950,15 +5851,15 @@ jpgMovieSliderPlayer.prototype.showPlayButton = function() {
     if (this.divPlayButton != null) {
         var b = "";
         if (this.back_button != null) {
-            b += '<A HREF="#" onClick="jm_' + this.divName + '.backFrame(); return false;"><IMG SRC="' + this.back_button.src + '" BORDER=0></A>'
+            b += '<A class="fa fa-angle-left fa-2x" HREF="#" onClick="jm_' + this.divName + '.backFrame(); return false;"></A>'
         }
         if (this.play_button != null) {
-            b += '<A HREF="#" onClick="jm_' + this.divName + '.play(); return false;"><IMG SRC="' + this.play_button.src + '" BORDER=0 HSPACE=10></A>'
+            b += '<A class="fa fa-play fa-2x" style="margin-left:40px; margin-right:33px" HREF="#" onClick="jm_' + this.divName + '.play(); return false;"></A>'
         } else {
             b += '<A HREF="#" onClick="jm_' + this.divName + '.play(); return false;">PLAY</A>'
         }
         if (this.forward_button != null) {
-            b += '<A HREF="#" onClick="jm_' + this.divName + '.forwardFrame(); return false;"><IMG SRC="' + this.forward_button.src + '" BORDER=0></A>'
+            b += '<A class="fa fa-angle-right fa-2x" HREF="#" onClick="jm_' + this.divName + '.forwardFrame(); return false;"></A>'
         }
         this.divPlayButton.innerHTML = b
     }
@@ -5966,28 +5867,12 @@ jpgMovieSliderPlayer.prototype.showPlayButton = function() {
     if (a != null) {
         a.style.display = "block"
     }
-    var c = document.getElementById(this.divName + "_frame_slider");
-    if (c != null) {
-        c.style.display = "block"
-    }
-    var d = document.getElementById(this.divName + "_speed_slider");
-    if (d != null) {
-        d.style.display = "block"
-    }
-    var f = document.getElementById(this.divName + "_frame_slider_handle");
-    if (f != null) {
-        f.style.display = "block"
-    }
-    var e = document.getElementById(this.divName + "_speed_slider_handle");
-    if (e != null) {
-        e.style.display = "block"
-    }
 };
 jpgMovieSliderPlayer.prototype.movieLoadedCB = function() {
     this.bLoaded = true;
     this.clearBufferingStatus();
     this.showPlayButton();
-    this.equipSlider();
+    // this.equipSlider();
     if (this.bAutoPlay) {
         this.play()
     }
@@ -6004,52 +5889,25 @@ jpgMovieFramelessSliderPlayer.prototype = new jpgMovieSliderPlayer();
 jpgMovieFramelessSliderPlayer.prototype.draw = function() {
     this.preDrawInit();
     this.play_button = new Image();
-    this.play_button.src = "http://www.entre-cabanes.net/js_images/play.png";
     this.pause_button = new Image();
-    this.pause_button.src = "http://www.entre-cabanes.net/js_images/pause.png";
     this.back_button = new Image();
-    this.back_button.src = "http://www.entre-cabanes.net/js_images/back.png";
     this.forward_button = new Image();
-    this.forward_button.src = "http://www.entre-cabanes.net/js_images/forward.png";
-    this.speed_adjusters = new Array();
-    this.speed_adjusters[1] = new Image();
-    this.speed_adjusters[1].src = "http://www.entre-cabanes.net/js_images/speed_adjuster_1.png";
-    this.speed_adjusters[2] = new Image();
-    this.speed_adjusters[2].src = "http://www.entre-cabanes.net/js_images/speed_adjuster_2.png";
-    this.speed_adjusters[3] = new Image();
-    this.speed_adjusters[3].src = "http://www.entre-cabanes.net/js_images/speed_adjuster_3.png";
-    this.speed_adjusters[4] = new Image();
-    this.speed_adjusters[4].src = "http://www.entre-cabanes.net/js_images/speed_adjuster_4.png";
-    this.speed_adjusters[5] = new Image();
-    this.speed_adjusters[5].src = "http://www.entre-cabanes.net/js_images/speed_adjuster_5.png";
     var a = "";
-   // a += '<DIV STYLE="width:' + this.playerWidth + "px; height:" + this.playerHeight + 'px; background-color:#FFFFFF; text-align:center">';
-   // a += '<A HREF="http://www.JpgMovie.com"><IMG SRC="http://www.JpgMovie.com/images/player/frameless/tabbed_title.jpg" WIDTH=100 HEIGHT=16 BORDER=0></A>';
-    //a += '<DIV STYLE="border:2px solid #000000; min-width:' + ((this.width)/2) + "px; height:" + this.height +'px;background-color:#000000;">\n'; //créer le div avec les commandes
-   // a += '<DIV STYLE="background-color:transparent; width:' + this.playerWidth + "px; height:" + (this.playerHeight - 16) + 'px; margin:0 0; padding:0; text-align:left;">\n';
-    //a += '<DIV STYLE="border:2px solid #000000; margin:0px 0px 0px 0px; position:relative; padding-bottom:40px; max-width:' + this.width + 'px;  background-color:transparent;">\n'; //fait disparaitre l'image de play de départ
     if (this.bTargetEnabled) {
-        a += '<DIV STYLE="border:0px solid #000000; margin:0px 0px 0px 0px; position:relative;height:0px; max-width:' + this.width + 'px;  background-color:#686886;">\n';
+        a += '<DIV STYLE="border:0px solid #000000; margin:0px 0px 0px 0px; position:relative;height:0px; max-width:' + this.width + 'px;  background-color:#6D5C8C;">\n';
         a += '<A ID="' + this.divName + '_target" HREF="' + this.defaultTarget + '"><img src="' + this.img + '" ID="' + this.divName + '_screen" BORDER=0></A>\n'
     } else {
-        a += '<DIV STYLE="border:0px solid #000000; margin:0px 0px 0px 0px; position:relative; padding-bottom:20px; max-width:' + this.width + 'px;  background-color:#686886;">\n';
+        a += '<DIV STYLE="border:0px solid #000000; margin:0px 0px 0px 0px; position:relative;height:0px; max-width:' + this.width + 'px;  background-color:#6D5C8C;">\n';
         a += '<img src="' + this.img + '" ID="' + this.divName + '_screen" BORDER=0>\n'
+        a += '<DIV ID="' + this.divName + '_play_button" STYLE="margin:6px 0px 6px 0px; padding:0; position:relative; background-color:transparent; text-align:center;"></DIV>';
+        a += '<DIV ID="' + this.divName + '_buffering" STYLE="text-align:center; font-family: naivbold_text; font-size:2em; color:#000;"></DIV>';
+        a += '<DIV ID="' + this.divName + '_speeds">';
+        a += '<span> <A style="margin-right:0.7em;" HREF="#" onclick="jm_movie_div.useSpeed(1); return false;">1</A><A style="margin-right:0.7em " HREF="#" onclick="jm_movie_div.useSpeed(2); return false;">2</A><A style="margin-right:0.7em " HREF="#" onclick="jm_movie_div.useSpeed(3); return false;">3</A><A style="margin-right:0.7em " HREF="#" onclick="jm_movie_div.useSpeed(4); return false;">4</A><A HREF="#" onclick="jm_movie_div.useSpeed(5); return false;">5</A></span></DIV>'
    }
-    a += '<DIV ID="' + this.divName + '_play_button" STYLE="margin:3px 0px 3px 0px; padding:0; position:relative; background-color:transparent; text-align:center;"></DIV>';
-   // var b = parseInt(((this.playerWidth - 109 - 136) / 2));
-    a += '<DIV ID="' + this.divName + '_buffering" STYLE="text-align:center;"></DIV>';
-   // a += '<DIV STYLE="width:170px; margin:0px 0px 0px 0px; float:left;">';
-   // a += '  <DIV ID="' + this.divName + '_frame_slider" STYLE="margin:6px 0px 0px 5px; width:170px; height:11px; background-image: url(http://www.entre-cabanes.net/js_images/slider-bg.png); no-repeat; text-align: left; display: none;"><DIV ID="' + this.divName + '_frame_slider_handle" class="handle" STYLE=" width:16px; height:16px; background-color:transparent; cursor:move; display:none;"><IMG SRC="http://www.entre-cabanes.net/js_images/slider.png" WIDTH=16 HEIGHT=16 BORDER=0 ></DIV></DIV>';
-   //a += "</DIV>\n";
-    a += '<DIV STYLE="width:200px; height:27px; margin:0 auto;">';
-    a += '  <DIV ID="' + this.divName + '_speeds" STYLE="margin:5px 0px 5px 0px; background-color:transparent; display: none;">';
-    a += this.getControlHtml_RegularSpeedAdjuster(this.speed_adjusters[3].src);
-    a += "  </DIV>\n";
+    
     a += "</DIV>\n";
-    a += "</DIV>\n";
-    a += "</DIV>\n";
-    a += "</DIV>\n";
-    a += "</DIV>\n";
+
+
     var c = document.getElementById(this.divName);
     if (c) {
         c.innerHTML = a
